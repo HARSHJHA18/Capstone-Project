@@ -19,10 +19,10 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Project Dependencies...'
-                 sh 'npm ci'
+                 bat 'npm ci'
                 
                 echo 'Installing Playwright Browsers...'
-                sh 'npx playwright install --with-deps'
+                bat 'npx playwright install --with-deps'
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Executing Parabank Performance Suite...'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh 'npx playwright test --grep @performance'
+                    bat 'npx playwright test --grep @performance'
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Executing Parabank E2E Flow Suite...'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                 sh 'npx playwright test --grep @e2e'
+                 bat 'npx playwright test --grep @e2e'
                 }
             }
         }
