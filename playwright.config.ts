@@ -20,13 +20,13 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 2,
+  workers: undefined,
   //Global Timeout
   //timeout : 6000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: [['html'],
-  //   ['list'],
-  //   ['allure-playwright', { outputFolder: 'allure-results' }]
+  // ['list'],
+  // ['allure-playwright', { outputFolder: 'allure-results' }]
   // ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -34,8 +34,8 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    screenshot:'only-on-failure',
-    video:'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
     trace: 'on-first-retry',
 
     //Action Timeout
