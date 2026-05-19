@@ -1,1 +1,0 @@
-UI Load Time : 4850 ms

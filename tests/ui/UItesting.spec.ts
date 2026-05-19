@@ -26,7 +26,4 @@ test.describe('UI testing', () => {
             await fundTransfer.TransferValidation(data.expectedMessage);
         });
     }
-    test.afterAll('Page Close', async ({ page }) => {
-        await page.close();
-    });
 });

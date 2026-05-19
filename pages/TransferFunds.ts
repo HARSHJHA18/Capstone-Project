@@ -25,7 +25,6 @@ export class TransferFunds {
             this.page.getByRole('heading', { name: expectedMessage }),
             expectedMessage
         )
-        // Screenshot of confirmation screen (critical step)
         await this.page.screenshot({ path: `test-results/screenshots/transfer-confirmation-${Date.now()}.png` });
         console.log(`[TransferFunds] Validation passed: "${expectedMessage}"`);
     }

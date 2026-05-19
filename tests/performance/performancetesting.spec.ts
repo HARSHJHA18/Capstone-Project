@@ -11,10 +11,7 @@ import { readExcelFile } from '../../utils/excelReader';
 
 import path from 'path';
 
-const filePath = path.join(
-    __dirname,
-    '../../testData/testData.xlsx'
-);
+const filePath = path.join( __dirname,'../../testData/testData.xlsx');
 
 const records = readExcelFile(filePath);
 
@@ -36,15 +33,10 @@ test.describe('Parabank Performance Suite', () => {
 
     for (const data of records) {
 
-        test(
-            `@performance API Response Time ${data.TestID}`,
-            async ({ request }) => {
-
+        test(`@performance API Response Time ${data.TestID}`,async ({ request }) => {
                 const start = Date.now();
-
                 const response =
-                    await request.get(
-                        `${ENV.apiBaseUrl}/accounts/13344`,
+                    await request.get(`${ENV.apiBaseUrl}/accounts/13344`,
                         {
                             headers: {
                                 Accept:
@@ -53,12 +45,9 @@ test.describe('Parabank Performance Suite', () => {
                         }
                     );
 
-                const responseTime =
-                    Date.now() - start;
+                const responseTime = Date.now() - start;
 
-                console.log(
-                    `API Response Time : ${responseTime} ms`
-                );
+                console.log(`API Response Time : ${responseTime} ms`);
 
                 await Assert.statusCode(response,200);
 
@@ -69,9 +58,7 @@ test.describe('Parabank Performance Suite', () => {
 
     for (const data of records) {
 
-        test(
-            `@performance Parallel Request ${data.TestID}`,
-            async ({ request }) => {
+        test(`@performance Parallel Request ${data.TestID}`,async ({ request }) => {
 
                 const parallelCount = 20;
 

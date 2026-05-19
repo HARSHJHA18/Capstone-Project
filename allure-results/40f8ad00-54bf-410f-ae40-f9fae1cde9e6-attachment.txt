@@ -1,1 +1,0 @@
-API Response Time : 2360 ms

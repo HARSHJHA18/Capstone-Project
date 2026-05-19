@@ -1,2 +1,0 @@
-Navigating to Transfer Funds page
-[TransferFunds] Validation passed: "Transfer Complete!"
